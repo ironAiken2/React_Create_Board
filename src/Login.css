@@ -1,8 +1,8 @@
-.App {
+.Login {
     text-align: center;
 }
 
-.board-container {
+.Login-container {
     margin: auto;
     width: 250px;
     border: 1px solid #333;
