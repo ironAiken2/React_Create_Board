@@ -1,31 +1,29 @@
 import "./Login.css";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Login = () => {
-  const [UserInfo, content] = useState({
-    id: "",
-    pw: "",
-  });
   const navigate = useNavigate();
 
   // input data 의 변화가 있을 때마다 value 값을 변경해서 useState 해준다
-  const handleInputId = (event) => {
-    const data = event.target.value;
-    content({
-      ...UserInfo,
-      id: data,
-    });
-    console.log(content);
+  const state = {
+    id: "",
+    pw: "",
   };
 
-  const handleInputPw = (event) => {
-    const data = event.target.value;
-    content({
-      ...UserInfo,
-      pw: data,
+  const handleInputId = (e) => {
+    this.useState({
+      state,
+      id: e.target.value,
     });
-    console.log(content);
+  };
+
+  const handleInputpw = (e) => {
+    this.useState({
+      state,
+      pw: e.target.value,
+    });
   };
 
   // login 버튼 클릭 이벤트
@@ -45,16 +43,26 @@ const Login = () => {
           input
           type="text"
           name="input_id"
-          onChange={handleInputId}
           placeholder=""
+          value={useState.id}
+          onChange={handleInputId}
         />
       </div>
       <div>
         <label htmlFor="input_pw">PW : </label>
-        <input type="password" name="input_pw" onChange={handleInputPw} />
+        <input
+          type="password"
+          name="input_pw"
+          placeholder=""
+          value={useState.pw}
+          onChange={handleInputpw}
+        />
       </div>
       <div>
         <button onClick={onClickLogin}>Login</button>
+      </div>
+      <div className="sign-up">
+        <Link to="/SignUp">회원가입</Link>
       </div>
     </div>
   );
